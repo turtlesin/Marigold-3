@@ -56,7 +56,7 @@ class ProductsController extends BaseController{
                     ->with('global', 'Produkts tika izdzēsts');;
         }
         return Redirect::to('admin/products/index')
-                ->with('global','Something went wrong, please try again');
+                ->with('global','Neizdevās izdzēst produktu! Mēģini vēlreiz!');
     }
     
     public function show($id)
@@ -89,23 +89,6 @@ class ProductsController extends BaseController{
         return View::make('products.edit')->with('product', $product);
 	}
         
-    public function update($id)
-	{
-		$input = array_except(Input::all(), '_method');
-                
-
-		$v = Validator::make($input, Product::$rules);
-
-		if($v->passes())
-		{
-                    Product::find($id)->update($input);
-			return Redirect::to('admin/products/index')
-                                ->with('global', 'Produkta '.$product->title.' dati tika mainīti');
-                                
-		}
-
-		return Redirect::back()->withErrors($v);
-	}
 
 
 }

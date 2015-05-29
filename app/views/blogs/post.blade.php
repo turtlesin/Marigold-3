@@ -21,5 +21,10 @@
 
 </div>
 
-
+<hr style="height:10pt; visibility:hidden;" />
+      <!--Latvju rakstu sadaļas beigas -->
+      <!-- -->
+      <footer>
+          @include('includes.footer')
+</footer>
 @stop

@@ -4,6 +4,7 @@
 <div id="shoping-cart">
     <div class="entry-heading"><h4 class="entry-title">Shopping Cart & Checkout</h4></div>
     <form action="http://www.paypal.com/cgi-bin/webscr" method="post">
+        
         <table border="1">
             <tr>
                 <th>#</th>
@@ -37,8 +38,9 @@
                 <td colspan="5">
                     <span>Total: ${{Cart::total()}}</span> <br/>
                     
-                    <input type="hidden" name="cmd" value="xclick">
-                    <input type="hidden" name="business" value="office@davanas.com">
+                   <input type="hidden" name="cmd" value="_ext-enter">
+                    <input type="hidden" name="redirect_cmd" value="_xclick">
+                    <input type="hidden" name="business" value="sintija.borskovica-facilitator@gmail.com">
                     <input type="hidden" name="item_name" value="Marigold Store Purchase">
                     <input type="hidden" name="amount" value="{{Cart::total()}}">
                     <input type="hidden" name="first_name" value="{{Auth::user()->firstname}}">

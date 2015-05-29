@@ -6,14 +6,14 @@
                     Sākums
                 </a>
             </li>
-            <li><a href="{{ URL::route('about')}}">Par mums</a></li>
+            <li><a href="{{ URL::route('par-mums')}}">Par mums</a></li>
             <li class="drop">
-                <a href="{{ URL::route('piedavajums')}}">Projekti</a>
+                <a href="{{ URL::route('projekti')}}">Projekti</a>
                     <div class="dropdownContain">
                         <div class="dropOut">
                             <ul>
-                                <li><a href="{{ URL::route('piedavajums-susana')}}">Individuālie</a></li>
-                                <li><a href="{{URL::route('piedavajums-izsusana')}}">Vairumā</a></li>
+                                <li><a href="{{ URL::route('projekti-individualie')}}">Individuālie</a></li>
+                                <li><a href="{{URL::route('projekti-kolektivie')}}">Vairumā</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,11 +71,11 @@
                     <ul>
                         <li><a href="{{ URL::route ('account-change-password')}}">Mainīt paroli</a></li>
                         <li>{{HTML::link('account/signout','Atslēgties')}}</li>
-                        <li>{{HTML::link('store/cart','Iepirkumu grozs')}}</li>
                     </ul>
                 </div>
                 </div>
             </li>
+            <li><a href="{{URL::to('store/cart')}}">{{HTML::image("img/black-cart.png", "Grozs")}}</a></li>
             @else
             <li class="drop">
                 {{HTML::link('account/signin','Ienākt')}}

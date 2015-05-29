@@ -11,43 +11,34 @@ Route::get('/projekti',array(
 
 Route::get('/cenas',array(
   'as'=>'cenas',
-    'uses'=>'PriceController@cenas'
+    'uses'=>'PagesController@prices'
 ));
-Route::get('/about',array(
-  'as'=>'about',
-    'uses'=>'HomeController@about'
+Route::get('/kontakti',array(
+  'as'=>'kontakti',
+    'uses'=>'PagesController@contacts'
+));
+Route::get('/par-mums', array(
+    'as'=>'par-mums',
+    'uses'=>'PagesController@about'
+));
+Route::get('/iespejas', array(
+   'as'=>'iespejas',
+    'uses'=>'PagesController@possible'
 ));
 Route::get('/projekti/individualie',array(
-    'as'=>'projekti-individual',
+    'as'=>'projekti-individualie',
     'uses'=>'ProjectController@individual'
 ));
 Route::get('/projekti/kolektivie',array(
-    'as'=>'projekti-colective',
+    'as'=>'projekti-kolektivie',
     'uses'=>'ProjectController@colective'
 ));
-Route::get('/piedavajums',array(
-    'as'=>'piedavajums',
-    'uses'=>'SewingController@piedavajums'
-));
-Route::get('/piedavajums/susana',array(
-    'as'=>'piedavajums-susana',
-    'uses'=>'SewingController@susana'
-));
-Route::get('/piedavajums/izsusana',array(
-    'as'=>'piedavajums-izsusana',
-    'uses'=>'SewingController@izsusana'
+Route::get('/projekti',array(
+    'as'=>'projekti',
+    'uses'=>'ProjectController@project'
 ));
 Route::controller('admin/products', 'ProductsController');
 Route::controller('admin/categories', 'CategoriesController');
-
-Route::get('/kontakti',array(
-    'as'=>'kontakti',
-    'uses'=>'ContactController@kontakti'
-));
-Route::get('/iespejas',array(
-    'as'=>'iespejas',
-    'uses'=>'PossibilitiesController@iespejas'
-));
 
 Route::get('/store', array(
     'as'=>'store',

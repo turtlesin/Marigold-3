@@ -36,7 +36,8 @@ App::after(function($request, $response)
 Route::filter('auth', function()
 {
 	if (Auth::guest())
-	return Redirect::guest('account/signin');
+	return Redirect::guest('account/signin')
+            ->with ('global', 'Lai veiktu darbību nepieciešams pieslēgties sistēmai!');
 });
 
 
@@ -64,8 +65,8 @@ Route::filter('guest', function()
 
 Route::filter('admin', function()
 {
-    if (!Auth::user() || Auth::user()->admin!=1) return Redirect::to('/')
-        ->with('global','Nepieciešams pieslēgties sistēmai, lai veiktu darbību');
+    if (!Auth::user() || Auth::user()->admin!=1) return Redirect::to('account/signin')
+        ->with('global','Lai veiktu darbību nepieciešams pieslēgties sistēmai!');
     
 });
 /*

@@ -5,7 +5,7 @@
             <div class="dav">
                 <ul>
                     <li>
-                        <a href="{{URL::route('store')}}"> {{ HTML::image('img/down-arrow.gif','')}}Shop by Category:</a></li>
+                        <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
                             @foreach($catnav as $cat)
                             <li>{{ HTML::link('/store/category/'.$cat->id,$cat->name)}}</li>
@@ -13,9 +13,9 @@
                             <li>
                                  <div id="search-form">
                 {{ Form::open(array('url'=>'store/search', 'method'=>'get'))}}
-                {{ Form::text('keyword', null, array('placeholder'=>'Search by keyword',
+                {{ Form::text('keyword', null, array('placeholder'=>'Meklēt pēc atslēgas vārda',
                             'class'=>'search'))}}
-                {{ Form::submit('Search', array('class'=>'search submit'))}}
+                {{ Form::submit('Meklēt', array('class'=>'search submit'))}}
                 {{ Form::close()}}
             </div> <!-- End search-form -->
                             </li>  
@@ -37,13 +37,13 @@
     <table class="show-product">
         <tr>
             <td>{{Form::open(array('url'=>'store/addtocart'))}}</td>
-            <td>{{Form::label('quantity', 'QTY')}}</td>
+            <td>{{Form::label('quantity', 'Daudzums')}}</td>
             <td>{{Form::text('quantity', 1, array('maxlength'=>'2'))}}</td>
     {{Form::hidden('id', $product->id)}}
         
     <td> <button type="submit" class="secondary-cart-btn">
             {{HTML::image('img/black-cart.png','Add to Cart')}}
-            ADD TO CART
+            Pievienot grozam
         </button> </td>
     {{Form::close()}}
     </tr>
@@ -55,7 +55,7 @@
             <td><p class="price">{{$product->price}} &#8364</p></td>
             <td>
                 <p>
-                    Pieejams:
+                    Pieejamība:
                         <span class="{{Availability::displayClass($product->availability)}}">
                             {{Availability::display($product->availability)}}
                         </span>
@@ -75,5 +75,10 @@
     </table>
 </div>
 </div>
-
+<hr style="height:20pt; visibility:hidden;" />
+      <!--Latvju rakstu sadaļas beigas -->
+      <!-- -->
+      <footer>
+          @include('includes.footer')
+</footer>
 @stop

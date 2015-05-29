@@ -25,11 +25,11 @@ class AccountController extends BaseController{
             $user->save();
             
             return Redirect::to('account/signin')
-                    ->with('message', 'Thank you for creating a new account. Please sign in.');   
+                    ->with('message', 'Paldies par reģistrāciju. Tagad Tu vai pieslēgties.');   
         }
         
         return Redirect::to('account/newaccount')
-                ->with('message', 'Something went wrong')
+                ->with('message', 'Kaut kas nogāja greizi. Mēgini vēlreiz!')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -41,7 +41,7 @@ class AccountController extends BaseController{
     public function postSignin(){
          $validator = Validator::make(Input::all(),
       array(
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required'
         ));
       if ($validator->fails()) {
@@ -49,7 +49,7 @@ class AccountController extends BaseController{
         ->withErrors($validator)
         ->withInput();
     } else {
-      $auth = Auth::attempt(array('email' => Input::get('email'),
+      $auth = Auth::attempt(array('username' => Input::get('username'),
         'password' => Input::get('password')));
       
       if($auth) {
@@ -57,16 +57,16 @@ class AccountController extends BaseController{
             return Redirect::to(Input::get('redirect'));
         }else {
             return Redirect::to('/')
-                    ->with ('global','Login successfull!');
+                    ->with ('global','Pieslēgšanās izdevusies veiksmīgi!');
         }
       } else {
         return Redirect::to('account/signin')
-                ->with('global','Your email/password combo was incorect');
+                ->with('global','Lietotājvārds vai parole ievadīti nepareizi!');
     }}}
     
     public function getSignout(){
         Auth::logout();
-        return Redirect::to('account/signin')->with('global', 'You have been signed out');
+        return Redirect::to('account/signin')->with('global', 'Atslēgšanās izdevusies!');
     }
     
     
@@ -77,8 +77,8 @@ class AccountController extends BaseController{
   public function postChangePassword() {
    $validator = Validator::make(Input::all(), array(
    'old_password'   => 'required',
-   'password'       => 'required|min:8',
-   'password_again' =>'required|same:password'
+   'new_password'       => 'required|min:8',
+   'new_password_again' =>'required|same:new_password'
    ));
    if($validator->fails()) {
       return Redirect::route('account-change-password')
@@ -86,22 +86,22 @@ class AccountController extends BaseController{
    } else {
       $user = User::find(Auth::user()->id);
       $old_password = Input::get('old_password');
-      $password = Input::get('password');
+      $new_password = Input::get('password');
 
       if(Hash::check($old_password, $user->getAuthPassword())) {
-        $user->password = Hash::make($password);
+        $user->new_password = Hash::make($password);
           if($user->save()) {
             return Redirect::route('home')
-              ->with('global', 'Your password has been changed.');
+              ->with('global', 'Tava parole ir nomainīta veiksmīgi.');
           }
 
       } else {
            return Redirect::route('account-change-password')
-          ->with('global', 'your old password is incorrect');
+          ->with('global', 'Vecā parole ir ievadīta nepareizi! Pārbaudi datus un mēģini vēlreiz!');
       }
     }
    return Redirect::route('account-change-password')
-          ->with('global', 'your password could not be changed');
+          ->with('global', 'Paroli neizdevās nomainīt! Mēģini vēlreiz!');
   }
   
  public function getForgotPassword() {
@@ -135,16 +135,16 @@ public function postForgotPassword() {
             'username' => $user->username,
             'password' => $password),
           function($message) use ($user) {
-            $message->to($user->email, $user->username)->subject('your new password has been requested');
+            $message->to($user->email, $user->username)->subject('Tava jaunā parole tika pieprasīta!');
 
           });
           return Redirect::route('home')
-          ->with('global', 'we have send you a new pw by email');
+          ->with('global', 'Jaunā parole tika nosūtīta uz e-pastu!');
         }
       }
   }
   return Redirect::route('account-forgot-password')
-      ->with('global', 'could not request new password');
+      ->with('global', 'Neizdevās pieprasīt jaunu paroli!');
 }
 public function getRecover($code) {
     $user = User::where('code', '=', $code)->where('password_temp', '!=', '');
@@ -157,11 +157,11 @@ public function getRecover($code) {
 
         if ($user->save()) {
             return Redirect::to('account/signin')
-            ->with('global', 'Your account has been recover and you can sign in with your new password');
+            ->with('global', 'Tavs konts tika atjaunots! Tagad vari pieslēgties ar jauno paroli!');
         }
     }
     return Redirect::route('home')
-    ->with('global', 'Could not recover your account');
+    ->with('global', 'Neizdevās atjaunot kontu!');
     }
     
 } 

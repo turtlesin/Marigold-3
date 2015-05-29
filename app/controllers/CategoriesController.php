@@ -22,11 +22,11 @@ class CategoriesController extends BaseController{
             $category->save();
             
             return Redirect::to('admin/categories/index')
-                ->with ('global', 'Category Created');    
+                ->with ('global', 'Kategorija izveidota');    
         }
         
         return Redirect::to('admin/categories/index')
-                ->with ('global', 'Something went wrong')
+                ->with ('global', 'Neizdevās izveidot kategoriju! Mēģini vēlreiz!')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -36,9 +36,9 @@ class CategoriesController extends BaseController{
         if ($category){
             $category->delete();
             return Redirect::to('admin/categories/index')
-                    ->with ('global', 'Category Deleted');
+                    ->with ('global', 'Kategorija izdzēsta');
         }
         return Redirect::to('admin/categories/index')
-                ->with('global','Something went wrong, please try again');
+                ->with('global','Neizdevās izdzēst kategoriju! Mēģini vēlreiz!');
     }
 }

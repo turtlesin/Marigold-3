@@ -20,8 +20,8 @@
     {{ Form::open(array('url'=>'account/signin'))}}
     <table class="sign-in">
         <tr>
-            <td> E-pasts </td>
-            <td>{{Form::text('email')}}</td>
+            <td> Lietotājvārds</td>
+            <td>{{Form::text('username')}}</td>
     </tr>
     <tr>
             <td> Parole </td>

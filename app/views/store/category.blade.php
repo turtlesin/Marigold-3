@@ -5,7 +5,7 @@
             <div class="dav">
                 <ul>
                     <li>
-                        <a href="{{URL::route('store')}}"> {{ HTML::image('img/down-arrow.gif','')}}Shop by Category:</a></li>
+                        <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
                             @foreach($catnav as $cat)
                             <li>{{ HTML::link('/store/category/'.$cat->id,$cat->name)}}</li>
@@ -13,9 +13,9 @@
                             <li>
                                  <div id="search-form">
                 {{ Form::open(array('url'=>'store/search', 'method'=>'get'))}}
-                {{ Form::text('keyword', null, array('placeholder'=>'Search by keyword',
+                {{ Form::text('keyword', null, array('placeholder'=>'Meklē pēc atslēgas vārda',
                             'class'=>'search'))}}
-                {{ Form::submit('Search', array('class'=>'search submit'))}}
+                {{ Form::submit('Meklēt', array('class'=>'search submit'))}}
                 {{ Form::close()}}
             </div> <!-- End search-form -->
                             </li>  
@@ -39,7 +39,7 @@
            </a>
            <h3><a href="/store/view/{{$product->id}}">{{ $product->title}}</a></h3>
            <p>{{$product->short_description}}</p>
-           <h5>Availability: 
+           <h5>Pieejamība: 
                <span class="{{Availability::displayClass($product->availability)}}}">
                    {{Availability::display($product->availability)}}
                </span>
@@ -55,19 +55,24 @@
                <button type="submit" class="cart-btn">
                   
                    {{HTML::image('img/black-cart.png','Add to Cart')}}
-                   ADD TO CART
+                   Pievienot grozam
                </button>
                {{Form::close()}}
            </p>
        </li>
        @endforeach
 </ul>
-</div>
+</div>@section ('pagination')
+    {{$products->links()}}
 <?php echo $products->links() ?>
 @stop
 
-@section ('pagination')
-    {{$products->links()}}
+<hr style="height:5pt; visibility:hidden;" />
+      <!--Latvju rakstu sadaļas beigas -->
+      <!-- -->
+      <footer>
+          @include('includes.footer')
+</footer>
 <!-- end pagination -->
 
 @stop

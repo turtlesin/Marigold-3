@@ -3,7 +3,7 @@
 @section('content')
 
 <div id='admin'>
-    <div class="entry-heading"><h4 class="entry-title">Categories</h4></div><hr>
+    <div class="entry-heading"><h4 class="entry-center">Kategorijas</h4></div></div><hr>
     <div id="primary">
     <table class="show-post">
         @foreach($categories as $category)
@@ -11,18 +11,18 @@
             <td>{{$category->name}}<td> 
             <td>{{ Form::open(array('url'=>'admin/categories/destroy', 'class'=>'form-inline')) }}
             {{ Form::hidden('id',$category->id) }}
-            {{ Form::submit('delete') }}</td>
+            {{ Form::submit('dzēst') }}</td>
             {{Form::close()}}
         </tr>
         @endforeach
     </table>
         
     </div>
-    <div class="entry-heading"><h4 class="entry-title">Create New Category</h4></div><hr>
+    <div class="entry-heading"><div class="entry-center">Izveidot jaunu kategoriju</h4></div></div><hr>
     <div id="primary">
 @if($errors->has())
 <div id="form-errors">
-    <p>The following errors have occured:</p>
+    <p>Radušās sekojošas kļūdas:</p>
     
     <ul>
         @foreach($errors->all() as $error)
@@ -35,10 +35,10 @@
 <table class="show-product">
     <tr>
         <td>
-    {{Form::label('name')}}
+    {{Form::label('Nosaukums')}}
     {{Form::text('name')}}</td>
         <td>
-            {{Form::submit('Create Category', array('class'=>'secondary-cart-btn'))}}</td>
+            {{Form::submit('Izveidot', array('class'=>'secondary-cart-btn'))}}</td>
 </table>
 {{Form::close()}}
     </div>
