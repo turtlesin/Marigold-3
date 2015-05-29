@@ -247,7 +247,7 @@ ul li:hover .dropOut { opacity: 1; margin-top: 8px; }
 } 
  .latvian{
       position: relative;
-      top: 350px;
+      top: 250px;
   } 
   .latvian .title h2 {
    width: 100%; 
@@ -372,7 +372,7 @@ ul li:hover .dropOut { opacity: 1; margin-top: 8px; }
 }
    .review{
       position: relative;
-      top: 125px;
+      top: 10px;
   }
  .review h2 {
    width: 100%; 
@@ -610,7 +610,7 @@ html {
 	}
 	
 	#nav-bar a{
-		display: inline-block;
+		
 			*display: block;
 			zoom: 1.0;
 		width: 231px;
@@ -668,7 +668,7 @@ html {
 
 .accordion {
   width: 100%;
-  max-width: 1080px;
+  max-width: 800px;
   height: 350px;
   overflow: hidden;
   margin: 50px auto;
@@ -744,17 +744,15 @@ html {
   font-size: 13.5px;
 }
 
-.accordion ul li:nth-child(1) { background-image: url("https://s-media-cache-ak0.pinimg.com/736x/96/c2/00/96c200b8effb042084e8e91f877c4b8a.jpg"); }
+.accordion ul li:nth-child(1) { background-image: url("http://i.imgur.com/Y46VPFj.jpg"); }
 
-.accordion ul li:nth-child(2) { background-image: url("http://www.music.lv/upload/pages/16/DSC_0075.jpg"); }
+.accordion ul li:nth-child(2) { background-image: url("http://i.imgur.com/Wrdujmp.jpg"); }
 
-.accordion ul li:nth-child(3) { background-image: url("https://unsplash.it/650/350?image=673"); }
+.accordion ul li:nth-child(3) { background-image: url("http://i.imgur.com/c2pxlGR.jpg"); }
 
-.accordion ul li:nth-child(4) { background-image: url("https://unsplash.it/650/350?image=672"); }
+.accordion ul li:nth-child(4) { background-image: url("http://i.imgur.com/kSDxKlm.jpg"); }
 
-.accordion ul li:nth-child(5) { background-image: url("https://unsplash.it/650/350?image=671"); }
-
-.accordion ul li:nth-child(6) { background-image: url("https://unsplash.it/650/350?image=670"); }
+.accordion ul li:nth-child(5) { background-image: url("http://i.imgur.com/Y3ebVcF.jpg"); }
 
 .accordion ul:hover li { width: 8%; }
 
@@ -912,9 +910,7 @@ html {
 {
 background:none;
 }
-.dav ul li.drop {
-	position: relative;
-}
+
 .dav ul > li {
 	display: inline-block;
 }

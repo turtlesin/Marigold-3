@@ -1,7 +1,7 @@
 @extends ('layout.main')
 
 @section('content')
-<div id="navsec">
+<div class="navcont">
             <div class="dav">
                 
                 <ul>
@@ -26,7 +26,7 @@
     @yield('pagination')
 </div>
 <p>{{ Session::get('success') }}</p>
-<div class="entry-heading"><div class="entry-center">Jaunākie produkt</div></div>
+<div class="entry-heading"><div class="entry-center">Jaunākie produkti</div></div>
 <hr>
 
 <div class="product">

@@ -10,37 +10,31 @@
 <div class="accordion">
   <ul>
     <li>
-      <div> <a href="#">
+      <div> <a href="{{URL::to('store/view/24')}}">
         <h2>Lorem Ipsum</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </a> </div>
     </li>
     <li>
-      <div> <a href="#">
+      <div> <a href="{{URL::to('store/view/28')}}">
         <h2>Lorem Ipsum</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </a> </div>
     </li>
     <li>
-      <div> <a href="#">
+      <div> <a href="{{URL::to('store/view/25')}}">
         <h2>Lorem Ipsum</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </a> </div>
     </li>
     <li>
-      <div> <a href="#">
+      <div> <a href="{{URL::to('store/view/26')}}">
         <h2>Lorem Ipsum</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </a> </div>
     </li>
     <li>
-      <div> <a href="#">
-        <h2>Lorem Ipsum</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </a> </div>
-    </li>
-    <li>
-      <div> <a href="#">
+      <div> <a href="{{URL::to('store/view/27')}}">
         <h2>Lorem Ipsum</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </a> </div>
@@ -170,7 +164,7 @@
         </div>
     </div>
       </div>
- <hr style="height:250pt; visibility:hidden;" />
+ <hr style="height:200pt; visibility:hidden;" />
       <!--Latvju rakstu sadaļas beigas -->
       <!-- -->
       <footer>

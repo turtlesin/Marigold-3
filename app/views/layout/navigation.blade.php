@@ -93,6 +93,3 @@
         </ul>
     </div>
 </div>
-<div class="apakšmenu">
-   
-</div>

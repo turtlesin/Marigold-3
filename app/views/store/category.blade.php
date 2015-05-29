@@ -1,7 +1,7 @@
 @extends ('layout.main')
 
 @section ('content')
-<div id="navsec">
+<div class="navcont">
             <div class="dav">
                 <ul>
                     <li>
