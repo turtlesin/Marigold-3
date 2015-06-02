@@ -34,9 +34,9 @@ return array(
 	"different"            => "The :attribute and :other must be different.",
 	"digits"               => "Laukam [:attribute] jāsatur :digits cipari.",
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
-	"email"                => "Ievadītais :attribute neatbilst epasta formai.",
+	"email"                => ":attribute neatbilst epasta formai.",
 	"exists"               => "The selected :attribute is invalid.",
-	"image"                => "Laukam [:attribute] must be an image.",
+	"image"                => "Izvēlētais attēls nav atbilstoša formāta. Atļautie formāti ir .jpg, .png un .gif!",
 	"in"                   => "The selected :attribute is invalid.",
 	"integer"              => "Laukam [:attribute] jāsatur tikai skaitļi.",
 	"ip"                   => "The :attribute must be a valid IP address.",
@@ -56,7 +56,7 @@ return array(
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "Laukam [:attribute] jāsatur tikai skaitļi.",
 	"regex"                => "The :attribute format is invalid.",
-	"required"             => "Lauks [:attribute] ir obligāti aizpildāms.",
+	"required"             => "Lauks [:attribute] ir obligāti aizpildāms!",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
 	"required_with_all"    => "The :attribute field is required when :values is present.",
@@ -88,6 +88,19 @@ return array(
 		'title' => array(
 			'unique' => 'Raksts ar tādu virsrakstu jau eksistē! Lūdzu, ievadiet citu virsrakstsu!',
 		),
+                'email' => array(
+                        'unique' => 'Ievadītais e-pasts jau ir reģistrēts sistēmā! Lūdzu pārbaudiet vai e-pasts uzrakstīts pareizi!'
+                ),
+                'username' => array(
+                        'unique' => 'Ievadītais lietotājvārds jau ir reģistrēts sistēmā! Lūdzu, ievadiet citu lietotājvārdu!'
+                ),
+                'telephone' => array(
+                        'unique' => 'Ievadītais tālruņa numurs jau ir reģistrēts sistēmā! Lūdzu pārbaudiet vai tālruņa numurs uzrakstīts pareizi!'
+                ),
+                'name' => array(
+                        'unique' => 'Ievadītā kategorija jau eksistē! Lūdzu, ievadiet citu!'
+                ),
+            
 	),
 
 	/*

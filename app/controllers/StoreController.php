@@ -53,7 +53,8 @@ class StoreController extends BaseController{
         ));
         
         return Redirect::back()
-                ->with('flash_message','Produkts pievienots grozam');
+                ->with('flash_message','Produkts pievienots grozam')
+            ->with('flash_type','success');
     }
     
     public function getCart(){
@@ -65,6 +66,7 @@ class StoreController extends BaseController{
         $item = Cart::item($identifier);
         $item->remove();
         return Redirect::to('store/cart')
-                ->with ('flash_message', 'Produkts izņemts no groza');
+                ->with ('flash_message', 'Produkts izņemts no groza')
+            ->with('flash_type', 'success');
     }
 }

@@ -1,10 +1,15 @@
 @extends('layout.main')
 
 @section('content')
+        @if ( Session::has('flash_message') )
+<div class="{{ Session::get('flash_type') }}">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
 
-<div id='admin'>
     <div class="entry-heading"><div class="entry-center">Izveidot jaunu produktu</div></div><hr>
-
+<div id='primary'>
 @if($errors->has())
 <div id="form-errors">
     <p>Radušās sekojošas kļūdas:</p>
@@ -16,7 +21,6 @@
     </ul>
 </div><!--end form-errors-->
 @endif
-<div id="primary">
 {{Form::token()}}
 {{Form::open(array('url'=>'admin/products/create', 'files'=>true))}}
 <table class="show-first">
@@ -77,6 +81,5 @@
         @endforeach
     </table>
     </div>
-</div><!--end admin -->
 
 @stop

@@ -38,11 +38,13 @@ class ProductsController extends BaseController{
             $product->save();
             
             return Redirect::to('admin/products/index')
-                ->with('global', 'Produkts izveidots');;    
+                ->with('flash_message', 'Produkts izveidots')
+                ->with('flash_type', 'success');   
         }
         
         return Redirect::to('admin/products/index')
-                ->with ('message', 'Kaut kas nogāja greizi!')
+                ->with ('flash_message', 'Neizdevās izveidot produktu')
+                ->with('flash_type', 'error')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -53,10 +55,12 @@ class ProductsController extends BaseController{
             File::delete('public/'.$product->image);
             $product->delete();
             return Redirect::to('admin/products/index')
-                    ->with('global', 'Produkts tika izdzēsts');;
+                    ->with('flash_message', 'Produkts tika izdzēsts')
+                ->with('flash_type', 'success');
         }
         return Redirect::to('admin/products/index')
-                ->with('global','Neizdevās izdzēst produktu! Mēģini vēlreiz!');
+                ->with('flash_message','Neizdevās izdzēst produktu! Mēģini vēlreiz!')
+            ->with ('flash_type', 'error');
     }
     
     public function show($id)
@@ -73,7 +77,8 @@ class ProductsController extends BaseController{
             $product->availability = Input::get('availability');
             $product->save();
             return Redirect::to('admin/products/index')
-                    ->with('global', 'Produkta '.$product->title.' pieejamība tika mainīta');
+                    ->with('flash_message', 'Produkta '.$product->title.' pieejamība tika mainīta')
+                ->with('flash_type', 'success');
         }
         return Redirect::to('admin/products/index')-with('message', 'Invalid Product');
     }

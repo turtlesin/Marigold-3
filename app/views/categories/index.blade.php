@@ -3,6 +3,12 @@
 @section('content')
 
 <div id='admin'>
+        @if ( Session::has('flash_message') )
+<div class="{{ Session::get('flash_type') }}">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
     <div class="entry-heading"><h4 class="entry-center">Kategorijas</h4></div></div><hr>
     <div id="primary">
     <table class="show-post">
@@ -21,9 +27,7 @@
     <div class="entry-heading"><div class="entry-center">Izveidot jaunu kategoriju</h4></div></div><hr>
     <div id="primary">
 @if($errors->has())
-<div id="form-errors">
-    <p>Radušās sekojošas kļūdas:</p>
-    
+<div id="form-errors">    
     <ul>
         @foreach($errors->all() as $error)
         <li>{{ $error}}</li>

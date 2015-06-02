@@ -110,7 +110,8 @@ public function __construct() {
 		{
 			Post::find($id)->update($input);
 			return Redirect::route('posts.index')
-                                 ->with('flash_message', 'Bloga ieraksts izlabots');;
+                                 ->with('flash_message', 'Bloga ieraksts izlabots')
+                        ->with ('flash_type', 'success');
 		}
 
 		return Redirect::back()->withErrors($v);
@@ -127,7 +128,8 @@ public function __construct() {
 		Post::find($id)->delete();
 
 		return Redirect::route('posts.index')
-                         ->with('flash_message', 'Bloga ieraksts izdzēsts');;
+                         ->with('flash_message', 'Bloga ieraksts izdzēsts')
+                ->with('flash_type', 'success');
 	}
         
         public function search()

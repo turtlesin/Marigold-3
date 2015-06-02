@@ -5,6 +5,7 @@ class AccountController extends BaseController{
     public function __construct(){
         parent::__construct();
         $this->beforeFilter('csrf', array('on'=>'post'));
+        $this->beforeFilter('auth', array('only'=>array('getChangePassword')));
     }
     
     public function getNewaccount(){
@@ -25,11 +26,13 @@ class AccountController extends BaseController{
             $user->save();
             
             return Redirect::to('account/signin')
-                    ->with('message', 'Paldies par reģistrāciju. Tagad Tu vai pieslēgties.');   
+                    ->with('flash_message', 'Paldies par reģistrāciju. Tagad Tu vai pieslēgties.')
+                ->with('flash_type', 'success');   
         }
         
         return Redirect::to('account/newaccount')
-                ->with('message', 'Kaut kas nogāja greizi. Mēgini vēlreiz!')
+                ->with('flash_message', 'Kaut kas nogāja greizi. Mēgini vēlreiz!')
+                ->with('flash_type', 'warning')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -46,6 +49,8 @@ class AccountController extends BaseController{
         ));
       if ($validator->fails()) {
       return Redirect::to('account/signin')
+              ->with('flash_message', 'Neizvās pieslēgites!')
+              ->with('flash_type', 'error')
         ->withErrors($validator)
         ->withInput();
     } else {
@@ -57,16 +62,20 @@ class AccountController extends BaseController{
             return Redirect::to(Input::get('redirect'));
         }else {
             return Redirect::to('/')
-                    ->with ('global','Pieslēgšanās izdevusies veiksmīgi!');
+                    ->with ('flash_message','Pieslēgšanās izdevusies veiksmīgi!')
+                ->with('flash_type', 'success');
         }
       } else {
         return Redirect::to('account/signin')
-                ->with('global','Lietotājvārds vai parole ievadīti nepareizi!');
+                ->with('flash_message','Lietotājvārds vai parole ievadīti nepareizi!')
+                ->with('flash_type','warning');
     }}}
     
     public function getSignout(){
         Auth::logout();
-        return Redirect::to('account/signin')->with('global', 'Atslēgšanās izdevusies!');
+        return Redirect::to('account/signin')
+                ->with('flash_message', 'Atslēgšanās izdevusies!')
+            ->with('flash_type', 'success');
     }
     
     
@@ -82,26 +91,31 @@ class AccountController extends BaseController{
    ));
    if($validator->fails()) {
       return Redirect::route('account-change-password')
+              ->with('flash_message', 'Neizevās nomainīt paroli!')
+              ->with('flash_type', 'warning')
         ->withErrors($validator);
    } else {
       $user = User::find(Auth::user()->id);
       $old_password = Input::get('old_password');
-      $new_password = Input::get('password');
+      $new_password = Input::get('new_password');
 
       if(Hash::check($old_password, $user->getAuthPassword())) {
-        $user->new_password = Hash::make($password);
+        $user->password = Hash::make($new_password);
           if($user->save()) {
             return Redirect::route('home')
-              ->with('global', 'Tava parole ir nomainīta veiksmīgi.');
+              ->with('flash_message', 'Tava parole ir nomainīta veiksmīgi.')
+                  ->with('flash_type', 'success');
           }
 
       } else {
            return Redirect::route('account-change-password')
-          ->with('global', 'Vecā parole ir ievadīta nepareizi! Pārbaudi datus un mēģini vēlreiz!');
+          ->with('flash_message', 'Vecā parole ir ievadīta nepareizi! Pārbaudi datus un mēģini vēlreiz!')
+              ->with('flash_type','warning');
       }
     }
    return Redirect::route('account-change-password')
-          ->with('global', 'Paroli neizdevās nomainīt! Mēģini vēlreiz!');
+          ->with('flash_message', 'Paroli neizdevās nomainīt! Mēģini vēlreiz!')
+          ->with('flash_type','error');
   }
   
  public function getForgotPassword() {
@@ -115,6 +129,8 @@ public function postForgotPassword() {
     );
   if($validator->fails()) {
     return Redirect::route('account-forgot-password')
+            ->with('flash_message', 'Neidevās atjaunot paroli!')
+            ->with('flash_type', 'error')
         ->withErrors($validator)
         ->withInput();
   } else {
@@ -139,12 +155,14 @@ public function postForgotPassword() {
 
           });
           return Redirect::route('home')
-          ->with('global', 'Jaunā parole tika nosūtīta uz e-pastu!');
+          ->with('flash_message', 'Jaunā parole tika nosūtīta uz e-pastu!')
+                ->with('flash_type', 'success');
         }
       }
   }
   return Redirect::route('account-forgot-password')
-      ->with('global', 'Neizdevās pieprasīt jaunu paroli!');
+      ->with('flash_type', 'Neizdevās pieprasīt jaunu paroli!')
+        ->with('flash_message', 'error');
 }
 public function getRecover($code) {
     $user = User::where('code', '=', $code)->where('password_temp', '!=', '');
@@ -157,11 +175,13 @@ public function getRecover($code) {
 
         if ($user->save()) {
             return Redirect::to('account/signin')
-            ->with('global', 'Tavs konts tika atjaunots! Tagad vari pieslēgties ar jauno paroli!');
+            ->with('flash_message', 'Tavs konts tika atjaunots! Tagad vari pieslēgties ar jauno paroli!')
+                ->with('flash_type', 'success');
         }
     }
     return Redirect::route('home')
-    ->with('global', 'Neizdevās atjaunot kontu!');
+    ->with('flash_message', 'Neizdevās atjaunot kontu!')
+            ->with('flash_type', 'error');
     }
     
 } 

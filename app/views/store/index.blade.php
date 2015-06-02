@@ -26,8 +26,8 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-@if ( Session::has('flash_message') )
-<div class="success">
+        @if ( Session::has('flash_message') )
+<div class="{{ Session::get('flash_type') }}">
       <h5>{{ Session::get('flash_message') }}</h5>
 </div>
 <br>

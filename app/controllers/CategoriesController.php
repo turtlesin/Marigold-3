@@ -22,11 +22,13 @@ class CategoriesController extends BaseController{
             $category->save();
             
             return Redirect::to('admin/categories/index')
-                ->with ('global', 'Kategorija izveidota');    
+                ->with ('flash_message', 'Kategorija izveidota')
+                    ->with('flash_type', 'success');    
         }
         
         return Redirect::to('admin/categories/index')
-                ->with ('global', 'Neizdevās izveidot kategoriju! Mēģini vēlreiz!')
+                ->with ('flash_message', 'Neizdevās izveidot kategoriju! Mēģini vēlreiz!')
+                ->with('flash_type', 'warning')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -36,9 +38,11 @@ class CategoriesController extends BaseController{
         if ($category){
             $category->delete();
             return Redirect::to('admin/categories/index')
-                    ->with ('global', 'Kategorija izdzēsta');
+                    ->with ('flash_message', 'Kategorija izdzēsta')
+                    ->with('flash_type', 'success');
         }
         return Redirect::to('admin/categories/index')
-                ->with('global','Neizdevās izdzēst kategoriju! Mēģini vēlreiz!');
+                ->with('flash_message','Neizdevās izdzēst kategoriju! Mēģini vēlreiz!')
+                ->with('flash_type', 'warning');
     }
 }

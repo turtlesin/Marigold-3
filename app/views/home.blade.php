@@ -1,7 +1,12 @@
 @extends('layout.main')
 
 @section('content')
-  
+          @if ( Session::has('flash_message') )
+<div class="{{ Session::get('flash_type') }}">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
   
   <div id="container">
       <div class="entry-heading"><div class="entry-center">Jaunākie projekti</div></div>

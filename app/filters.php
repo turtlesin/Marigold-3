@@ -37,7 +37,8 @@ Route::filter('auth', function()
 {
 	if (Auth::guest())
 	return Redirect::guest('account/signin')
-            ->with ('global', 'Lai veiktu darbību nepieciešams pieslēgties sistēmai!');
+            ->with ('flash_message', 'Lai veiktu darbību nepieciešams pieslēgties sistēmai!')
+        ->with('flash_type', 'warning');
 });
 
 
@@ -66,7 +67,8 @@ Route::filter('guest', function()
 Route::filter('admin', function()
 {
     if (!Auth::user() || Auth::user()->admin!=1) return Redirect::to('account/signin')
-        ->with('global','Lai veiktu darbību nepieciešams pieslēgties sistēmai!');
+        ->with('flash_message','Lai veiktu darbību nepieciešams pieslēgties sistēmai!')
+        ->with('flash_type', 'warning');
     
 });
 /*

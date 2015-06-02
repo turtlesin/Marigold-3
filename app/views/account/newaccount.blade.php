@@ -1,6 +1,12 @@
 @extends('layout.main')
 
 @section('content')
+        @if ( Session::has('flash_message') )
+<div class="{{ Session::get('flash_type') }}">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
 <div id="primary">
 <div id="new-account">
     <div class="entry-heading"><div class="entry-center">Izveidot jaunu profilu</div></div>
