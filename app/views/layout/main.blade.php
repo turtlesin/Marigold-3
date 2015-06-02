@@ -601,63 +601,7 @@ html {
   top: 260px;
   left: 20px;
   z-index: -3;
-}
-        	#nav-bar{
-		width: 923px;
-		position: absolute;
-		z-index: 999999;
-		bottom: -3px;
-	}
-	
-	#nav-bar a{
-		
-			*display: block;
-			zoom: 1.0;
-		width: 231px;
-		text-align: center;
-		height: 26px;
-		padding-top: 9px;
-		color: #fff;
-		overflow: hidden;
-		font-size: 21px;
-		text-shadow: 0 1px 5px #000;
-		text-decoration: none;
-		position: relative;
-		background: rgba(2, 19, 32, 0.9);
-		-webkit-transition: padding-top .25s;
-		-moz-transition: padding-top .25s;
-		transition: padding-top .25s;
-	}
-	
-	#nav-bar a:first-child{
-		width: 230px;
-	}
-	
-	#nav-bar a div{
-		height: 0;
-		width: 231px;
-		overflow: hidden;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-	}
-	
-	#nav-bar a div img{
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		opacity: 0.3;
-	}
-	
-	#nav-bar a:hover{
-		padding-top: 317px;
-		box-shadow: 0 0 5px #000;
-	}
-	
-	#nav-bar a:hover div{
-		height: 343px;
-	}
-        
+}        
         //cenas accordion
 .css-script-menu h1 {
   text-align: center;
@@ -1404,6 +1348,178 @@ footer{
 br {
    display: block;
    margin: 20px;
+}
+#nav-bar{
+		width: 923px;
+		position: absolute;
+		z-index: 999999;
+		bottom: -3px;
+	}
+	
+	#nav-bar a{
+		display: inline-block;
+			*display: block;
+			zoom: 1.0;
+		width: 231px;
+		text-align: center;
+		height: 26px;
+		padding-top: 9px;
+		color: #fff;
+		overflow: hidden;
+		font-size: 21px;
+		text-shadow: 0 1px 5px #000;
+		text-decoration: none;
+		position: relative;
+		background: rgba(2, 19, 32, 0.9);
+		-webkit-transition: padding-top .25s;
+		-moz-transition: padding-top .25s;
+		transition: padding-top .25s;
+	}
+	
+	#nav-bar a:first-child{
+		width: 230px;
+	}
+	
+	#nav-bar a div{
+		height: 0;
+		width: 231px;
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+	
+	#nav-bar a div img{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		opacity: 0.3;
+	}
+	
+	#nav-bar a:hover{
+		padding-top: 317px;
+		box-shadow: 0 0 5px #000;
+	}
+	
+	#nav-bar a:hover div{
+		height: 343px;
+	}
+        .success{
+            
+        }
+        .message{
+     
+}
+.info{
+     background-color: #4ea5cd;
+     border-color: #3b8eb5;
+}
+
+.error{
+     background-color: #de4343;
+     border-color: #c43d3d;
+}
+
+.warning{
+     background-color: #eaaf51;
+     border-color: #d99a36;
+     -webkit-background-size: 20px 20px;
+     -moz-background-size: 20px 20px;
+     background-size: 20px 20px;
+     background-image: -webkit-gradient(linear, left top, right bottom,
+                color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
+                color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
+                color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
+                         to(transparent));
+     background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                         transparent 75%, transparent);
+     background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                         transparent 75%, transparent);
+     background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                          transparent 75%, transparent);
+     background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                           transparent 75%, transparent);
+     background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                           transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                            transparent 75%, transparent);
+     -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     width: 100%;
+     border: 1px solid;
+     color: #fff;
+     text-align: center;
+     position: absolute;
+     _position: absolute;
+     text-shadow: 0 1px 0 rgba(0,0,0,.5);
+     -webkit-animation: animate-bg 5s linear infinite;
+     -moz-animation: animate-bg 5s linear infinite;
+}
+
+.success{
+     background-color: #61b832;
+     border-color: #55a12c;
+     -webkit-background-size: 20px 20px;
+     -moz-background-size: 20px 20px;
+     background-size: 20px 20px;
+     background-image: -webkit-gradient(linear, left top, right bottom,
+                color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
+                color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
+                color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
+                         to(transparent));
+     background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                         transparent 75%, transparent);
+     background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                         transparent 75%, transparent);
+     background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                          transparent 75%, transparent);
+     background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                           transparent 75%, transparent);
+     background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                           transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                            transparent 75%, transparent);
+     -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+     width: 100%;
+     border: 1px solid;
+     color: #fff;
+     text-align: center;
+     position: absolute;
+     _position: absolute;
+     text-shadow: 0 1px 0 rgba(0,0,0,.5);
+     -webkit-animation: animate-bg 5s linear infinite;
+     -moz-animation: animate-bg 5s linear infinite;
+}
+
+.message h5{
+     margin: 0 0 5px 0;
+}
+
+@-webkit-keyframes animate-bg{
+    from {
+       background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+
+@-moz-keyframes animate-bg{
+    from {
+       background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
 }
 </style>
 

@@ -6,13 +6,14 @@
 <div class="right">
     <h4>Meklēt rakstu</h4>
             {{ Form::open(array('url' => 'search')) }}
-            <div class="input-group">
-              {{Form::text('search', '', array('class' => 'form-control'))}}
-              <span class="input-group-btn">
-              {{ Form::submit('Meklēt', array('class' => 'btn btn-default'))}}
-              </span>
+                <div class="input-group">
+                  {{Form::text('search', '', array('class' => 'form-control'))}}
+                    <span class="input-group-btn">
+                        {{ Form::submit('Meklēt', array('class' => 'btn btn-default'))}}
+                    </span>
+                </div>
             {{ Form::close()}}
-</div>
+            
 </div>
 
 @foreach($posts as $p)
@@ -24,10 +25,17 @@
         <div class="body"><p>{{ Str::limit($p->body, 450)}}</p></div>
         <table class="show-post">
                 <tr>
-                    <td><p>{{HTML::link('blog/'.$p->slug, 'Lasīt tālāk..')}}</p><td>
-                    <td><div class="entry-meta"><p><span class="glyphicon glyphicon-time"></span> 
-                    Publicēja {{ ucwords( $p->user->firstname ) }} , {{ Carbon::createFromTimeStamp(strtotime($p->created_at))->formatLocalized(' %d %B %Y')}}
-                               </p></div></td>
+                    <td>
+                        <p>{{HTML::link('blog/'.$p->slug, 'Lasīt tālāk..')}}</p>
+                    <td>
+                    <td>
+                        <div class="entry-meta">
+                            <p>
+                                 
+                    Publicēja {{ ucwords( $p->user->username ) }} , {{ Carbon::createFromTimeStamp(strtotime($p->created_at))->formatLocalized(' %d %B %Y')}}
+                               </p>
+                        </div>
+                    </td>
                 </tr>
         </table>
         </div>
@@ -38,9 +46,7 @@
     <?php echo $posts->links() ?>
 
 <hr style="height:10pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
-      <footer>
+<footer>
           @include('includes.footer')
 </footer>
 @stop

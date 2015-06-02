@@ -51,7 +51,7 @@ public function __construct() {
 			$post->save();
 
 			return Redirect::route('posts.index')
-                                 ->with('global', 'Bloga ieraksts izveidots');;
+                                 ->with('flash_message', 'Bloga ieraksts izveidots');
 		}
 
 		return Redirect::back()->withErrors($v);
@@ -71,7 +71,9 @@ public function __construct() {
 		setlocale(LC_TIME, 'America/New_York');
 		$date = $date->formatlocalized('%A %d %B %Y');
 
-        return View::make('posts.show')->with('post', $post)->with('date', $date);
+        return View::make('posts.show')
+                ->with('post', $post)
+                ->with('date', $date);
 	}
 
 	/**
@@ -108,7 +110,7 @@ public function __construct() {
 		{
 			Post::find($id)->update($input);
 			return Redirect::route('posts.index')
-                                 ->with('global', 'Bloga ieraksts izlabots');;
+                                 ->with('flash_message', 'Bloga ieraksts izlabots');;
 		}
 
 		return Redirect::back()->withErrors($v);
@@ -125,7 +127,14 @@ public function __construct() {
 		Post::find($id)->delete();
 
 		return Redirect::route('posts.index')
-                         ->with('global', 'Bloga ieraksts izdzēsts');;
+                         ->with('flash_message', 'Bloga ieraksts izdzēsts');;
+	}
+        
+        public function search()
+	{
+		$input = Input::get('search');
+		$results = Post::where('body', 'LIKE', '%'.$input.'%')->get();
+		return View::make('blogs.search')->with('results', $results);
 	}
 
 }

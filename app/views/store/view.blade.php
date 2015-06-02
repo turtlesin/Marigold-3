@@ -5,6 +5,9 @@
             <div class="dav">
                 <ul>
                     <li>
+                        <a href="{{URL::route('all')}}">Visi produkti
+                    </li>
+                    <li>
                         <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
                             @foreach($catnav as $cat)
@@ -24,7 +27,12 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-<p>{{ Session::get('success') }}</p>
+@if ( Session::has('flash_message') )
+<div class="success">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
 <div id="primary">
 <div id="product-image">
     {{HTML::image($product->image, $product->title)}}

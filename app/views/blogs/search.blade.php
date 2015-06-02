@@ -28,7 +28,7 @@
         <table class="show-post">
                 <tr>
                     <td><p>{{HTML::link('blog/'.$p->slug, 'Lasīt tālāk..')}}</p><td>
-                    td><div class="entry-meta"><p><span class="glyphicon glyphicon-time"></span> 
+                   <td><div class="entry-meta"><p><span class="glyphicon glyphicon-time"></span> 
                     Publicēja {{ ucwords( $p->user->firstname ) }} , {{ Carbon::createFromTimeStamp(strtotime($p->created_at))->formatLocalized(' %d %B %Y')}}
                                </p></div></td>
                 </tr>

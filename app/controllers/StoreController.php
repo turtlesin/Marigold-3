@@ -6,21 +6,33 @@ class StoreController extends BaseController{
         parent::__construct();
         $this->beforeFilter('csrf', array ('on'=>'post'));
         $this->beforeFilter('auth',array('only'=>array('postAddtocart','getCart','getRemoveitem')));
+        //allows to add products to cart or remove them from it and view cart only if user is logged in
     }
-    
-    public function getIndex(){ //dāvanas sadaļas sākuma izskats
+    //displays the 4 newest products after going to store section
+    public function getIndex(){
         return View::make ('store.index')
-                ->with('products', Product::take(4)->orderBy('created_at', 'DESC')->get());
+                ->with('products', Product::take(4)
+                ->orderBy('created_at', 'DESC')->get());
     }
+    //allows to view each product after finding it's id in database
     public function getView($id){
-        return View::make('store.view')->with('product', Product::find($id));
+        return View::make('store.view')
+                ->with('product', Product::find($id));
     }
+    //shows products that are under chosen category (6 products in each page)
     public function getCategory($cat_id){
         return View::make('store.category')
-                ->with('products',Product::where('category_id', '=', $cat_id)->paginate(6))
+                ->with('products',Product::where('category_id', '=', $cat_id)
+                        ->paginate(6))
                 ->with ('category', Category::find($cat_id));
     }
-    
+    //shows all products
+    public function getAll (){
+        return View::make ('store.all')
+                ->with('products', Product::orderBy('created_at', 'DESC')
+                        ->paginate(12));
+    }
+    //finds all products where title includes seached keyword
     public function getSearch(){
         $keyword = Input::get('keyword');
         
@@ -41,20 +53,18 @@ class StoreController extends BaseController{
         ));
         
         return Redirect::back()
-                ->with('success','Proudkts pievienots grozam');
+                ->with('flash_message','Produkts pievienots grozam');
     }
     
     public function getCart(){
-        return View::make('store.cart')->with('products', Cart::contents());
+        return View::make('store.cart')
+                ->with('products', Cart::contents());
     }
     
     public function getRemoveitem($identifier){
         $item = Cart::item($identifier);
         $item->remove();
         return Redirect::to('store/cart')
-                ->with ('global', 'Produkts izņemtsno groza');
-    }
-    public function getContact(){
-        return View::make('store.contacts');
+                ->with ('flash_message', 'Produkts izņemts no groza');
     }
 }

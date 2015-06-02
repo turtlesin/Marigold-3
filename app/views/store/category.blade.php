@@ -4,6 +4,7 @@
 <div class="navcont">
             <div class="dav">
                 <ul>
+                     <li><a href="{{URL::route('all')}}">Visi produkti</li>
                     <li>
                         <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
@@ -24,7 +25,12 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-<p>{{ Session::get('success') }}</p>
+@if ( Session::has('flash_message') )
+<div class="success">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
 <div class="entry-heading"><div class="entry-center">{{ $category->name}}</div></div>
 <hr>
 
@@ -62,15 +68,13 @@
        </li>
        @endforeach
 </ul>
-</div>@section ('pagination')
-    {{$products->links()}}
+</div>
+
 <?php echo $products->links() ?>
-@stop
+
 
 <hr style="height:5pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
-      <footer>
+<footer>
           @include('includes.footer')
 </footer>
 <!-- end pagination -->

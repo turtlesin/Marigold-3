@@ -3,20 +3,26 @@
 @section('content')
 
 <div class="col-md-12">
-	{{ link_to_route('posts.create', 'Create a new post', null, array('class' => 'btn btn-primary')) }}
+	{{ link_to_route('posts.create', 'Izveidot jaunu rakstu', null, array('class' => 'btn btn-primary')) }}
 </div>
+@if ( Session::has('flash_message') )
+<div class="success">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
 @if($posts->count())
-<div class="entry-heading"><h4 class="entry-title">These are your current posts</h4></div>
+<div class="entry-heading"><div class="entry-center">Izveidotie bloga raksti</div></div><hr>
 	<div class="col-md-12">
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th>Title</th>
-					<th>Description</th>
-					<th>Date Created</th>
-					<th>Preview</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th>Nosaukums</th>
+					<th>Apraksts</th>
+					<th>Iveidošanas datums</th>
+					<th>Apskatīt</th>
+					<th>Labot</th>
+					<th>Dzēst</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,11 +31,11 @@
 					<td>{{ $p->title }}</td>
 					<td>{{ substr($p->body, 0, 120). '[...]'}}</td>
 					<td><span class="label label-info">{{ Carbon::createFromTimestamp(strtotime($p->created_at))->diffForHumans() }}</span></td>
-					<td>{{ link_to_route('posts.show', 'Preview', array($p->id), array('class' => 'btn btn-info')) }}</td>
-					<td>{{ link_to_route('posts.edit', 'Edit', array($p->id), array('class' => 'btn btn-warning')) }}</td>
+					<td>{{ link_to_route('posts.show', 'Apskatīt', array($p->id), array('class' => 'btn btn-info')) }}</td>
+					<td>{{ link_to_route('posts.edit', 'Labot', array($p->id), array('class' => 'btn btn-warning')) }}</td>
                                         <td class="delete">
 						{{ Form::open(array('method' => 'DELETE', 'route' => array('posts.destroy', $p->id))) }}
-						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+						{{ Form::submit('Dzēst', array('class' => 'btn btn-danger')) }}
 						{{ Form::close() }}
 
 					</td>
@@ -40,7 +46,7 @@
 		</table>
 	</div>
 	@else
-	<div class="alert alert-info col-md-4" style="margin-top: 15px">You currently have no posts</div>
+	<div class="alert alert-info col-md-4" style="margin-top: 15px">Šobrīd raksti nav izveidoti</div>
 	@endif
 
 

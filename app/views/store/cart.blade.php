@@ -2,16 +2,23 @@
 
 @section('content')
 <div id="shoping-cart">
-    <div class="entry-heading"><h4 class="entry-title">Shopping Cart & Checkout</h4></div>
-    <form action="http://www.paypal.com/cgi-bin/webscr" method="post">
+@if ( Session::has('flash_message') )
+<div class="success">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
+    <div class="entry-heading"><div class="entry-center">Iepirkumu grozs</div></div>
+    <hr>
+    <form action="http://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
         
         <table border="1">
             <tr>
                 <th>#</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Nosaukums</th>
+                <th>Cena</th>
+                <th>Daudzums</th>
+                <th></th>
                 
             </tr>
             
@@ -21,14 +28,11 @@
                 <td>{{HTML::image($product->image, $product->name, array('width'=>'65', 'height'=>37))}}
                 {{$product->name}}
                 </td>
-                <td>${{$product->price}}</td>
+                <td>{{$product->price}} &#8364</td>
                 <td>{{$product->quantity}}</td>
                 <td>
-                    ${{$product->price}}
-               &nbsp;
-               &nbsp;
                 <a href="/store/removeitem/{{ $product->identifier}}">
-                        {{HTML::image('img/remove.gif', 'Remove product')}}
+                        Izņemt produktu no groza
                     </a>
                </td>
             </tr>
@@ -36,7 +40,7 @@
             
             <tr class="total">
                 <td colspan="5">
-                    <span>Total: ${{Cart::total()}}</span> <br/>
+                    <span>Kopā: {{Cart::total()}} &#8364</span> <br/>
                     
                    <input type="hidden" name="cmd" value="_ext-enter">
                     <input type="hidden" name="redirect_cmd" value="_xclick">
@@ -47,8 +51,8 @@
                     <input type="hidden" name="last_name" value="{{Auth::user()->lastname}}">
                     <input type="hidden" name="email" value="{{Auth::user()->email}}">
                     
-                    {{HTML::link('/store', 'Continue Shopping', array('class'=>'tertiary-btn'))}}
-                    <input type="submit" value="Checkout with paypal" class="secondary-cart-btn">
+                    {{HTML::link('/store', 'Turpināt iepirkties', array('class'=>'tertiary-btn'))}}
+                    <input type="submit" value="Pirkt" class="secondary-cart-btn">
                         
                 </td>
             </tr>

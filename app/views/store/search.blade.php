@@ -1,26 +1,23 @@
-@extends('layout.main')
+@extends ('layout.main')
 
-@section('search-keyword')
-<section id="search-keyword">
-    <div class="entry-heading"><div class="entry-center">Meklēšanas rezultāti <span>{{ $keyword}}</span></div></div>
-</section><!-- end search-keyword -->
-<hr/>
-@stop
-
-@section ('content')
+@section('content')
 <div class="navcont">
             <div class="dav">
+                
                 <ul>
+                    <li>
+                        <a href="{{URL::route('all')}}">Visi produkti
+                    </li>
                     <li>
                         <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
                             @foreach($catnav as $cat)
-                            <li>{{ HTML::link('/dstore/category/'.$cat->id,$cat->name)}}</li>
+                            <li>{{ HTML::link('/store/category/'.$cat->id,$cat->name)}}</li>
                             @endforeach
                             <li>
                                  <div id="search-form">
                 {{ Form::open(array('url'=>'store/search', 'method'=>'get'))}}
-                {{ Form::text('keyword', null, array('placeholder'=>'Meklēt pēc atslēgas vārda',
+                {{ Form::text('keyword', null, array('placeholder'=>'Meklēt pēc atslēgvārda',
                             'class'=>'search'))}}
                 {{ Form::submit('Meklēt', array('class'=>'search submit'))}}
                 {{ Form::close()}}
@@ -31,7 +28,15 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-<p>{{ Session::get('success') }}</p>
+@if ( Session::has('flash_message') )
+<div class="success">
+      <h5>{{ Session::get('flash_message') }}</h5>
+</div>
+<br>
+@endif
+<div class="entry-heading"><div class="entry-center">Meklēšanas rezultāti</div></div>
+<hr>
+
 <div class="product">
 <ul class="products">
        @foreach($products as $product)
@@ -53,6 +58,7 @@
                {{Form::hidden('quantity',1)}}
                {{Form::hidden('id',$product->id)}}
                <button type="submit" class="cart-btn">
+                   
                    {{HTML::image('img/black-cart.png','Add to Cart')}}
                    Pievienot grozam
                </button>
@@ -62,7 +68,7 @@
        @endforeach
 </ul>
 </div>
-<hr style="height:0pt; visibility:hidden;" />
+<hr style="height:10pt; visibility:hidden;" />
       <!--Latvju rakstu sadaļas beigas -->
       <!-- -->
       <footer>

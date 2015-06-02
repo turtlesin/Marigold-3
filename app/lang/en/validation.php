@@ -28,7 +28,7 @@ return array(
 		"array"   => "Laukam :attribute jābūt no :min līdz :max simboliem.",
 	),
 	"boolean"              => "The :attribute field must be true or false.",
-	"confirmed"            => "Lauks [:attribute atkārtoti] nesakrīt ar ievadīto paroli.",
+	"confirmed"            => "Ievadītās paroles nesakrīt",
 	"date"                 => "The :attribute is not a valid date.",
 	"date_format"          => "The :attribute does not match the format :format.",
 	"different"            => "The :attribute and :other must be different.",
@@ -69,7 +69,7 @@ return array(
 		"string"  => "The :attribute must be :size characters.",
 		"array"   => "The :attribute must contain :size items.",
 	),
-	"unique"               => "The :attribute has already been taken.",
+	"unique"               => "Ievadītais :attribute jau ir reģistrēts sistēmā! Lūdzu pārbaudiet vai :attribute uzrakstīts pareizi!",
 	"url"                  => "The :attribute format is invalid.",
 	"timezone"             => "The :attribute must be a valid zone.",
 
@@ -85,8 +85,8 @@ return array(
 	*/
 
 	'custom' => array(
-		'attribute-name' => array(
-			'rule-name' => 'custom-message',
+		'title' => array(
+			'unique' => 'Raksts ar tādu virsrakstu jau eksistē! Lūdzu, ievadiet citu virsrakstsu!',
 		),
 	),
 
@@ -108,7 +108,7 @@ return array(
             "email" => "E-pasts",
             "password" => "Parole",
             "password_confirmation" => "Parole atkārtoti",
-            "telephone" => "Telefona nr",
+            "telephone" => "Telefona numurs",
             "name" => "Nosaukums",
             "title" => "Nosaukums",
             "description" =>"Apraksts",

@@ -10,7 +10,7 @@
  <div class="entry-meta">
      <p>
          <span class="glyphicon glyphicon-time"></span>
-         Posted {{ $date }} by {{ ucwords($post->user->firstname)}}</p>
+        Publicēja {{ ucwords( $post->user->username ) }} , {{ Carbon::createFromTimeStamp(strtotime($post->created_at))->formatLocalized(' %d %B %Y')}}</p>
  </div>
     <div class="body"> <p class="lead">{{ $post->body}}</p></div>
  

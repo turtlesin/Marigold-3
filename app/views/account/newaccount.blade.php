@@ -3,7 +3,7 @@
 @section('content')
 <div id="primary">
 <div id="new-account">
-    <div class="entry-heading"><div class="entry-sign">Izveido jaunu profilu</div></div>
+    <div class="entry-heading"><div class="entry-center">Izveidot jaunu profilu</div></div>
     <hr>
     
     @if($errors->has())

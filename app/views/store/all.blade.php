@@ -32,7 +32,7 @@
 </div>
 <br>
 @endif
-<div class="entry-heading"><div class="entry-center">Jaunākie produkti</div></div>
+<div class="entry-heading"><div class="entry-center">Produkti</div></div>
 <hr>
 
 <div class="product">
@@ -66,6 +66,7 @@
        @endforeach
 </ul>
 </div>
+<?php echo $products->links() ?>
 <hr style="height:10pt; visibility:hidden;" />
       <!--Latvju rakstu sadaļas beigas -->
       <!-- -->

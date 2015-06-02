@@ -42,8 +42,13 @@ Route::controller('admin/categories', 'CategoriesController');
 
 Route::get('/store', array(
     'as'=>'store',
-    'uses'=>'StoreController@getIndex'));
+    'uses'=>'StoreController@getIndex'
+));
 
+Route::get('/store/all', array(
+    'as'=>'all',
+    'uses'=>'StoreController@getAll'
+));
 Route::controller('store', 'StoreController');
 Route::controller('account','AccountController');
 

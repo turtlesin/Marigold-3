@@ -42,7 +42,7 @@ class ProductsController extends BaseController{
         }
         
         return Redirect::to('admin/products/index')
-                ->with ('message', 'Something went wrong')
+                ->with ('message', 'Kaut kas nogāja greizi!')
                 ->withErrors($validator)
                 ->withInput();
     }
@@ -88,7 +88,4 @@ class ProductsController extends BaseController{
 
         return View::make('products.edit')->with('product', $product);
 	}
-        
-
-
 }
