@@ -62,7 +62,7 @@ return array(
 	"required_with_all"    => "The :attribute field is required when :values is present.",
 	"required_without"     => "The :attribute field is required when :values is not present.",
 	"required_without_all" => "The :attribute field is required when none of :values are present.",
-	"same"                 => "Laukiem [:attribute] un [:other] jābūt aizpildītiem vienādiem.",
+	"same"                 => "Ievadītās paroles nesakrīt!",
 	"size"                 => array(
 		"numeric" => "The :attribute must be :size.",
 		"file"    => "The :attribute must be :size kilobytes.",

@@ -109,7 +109,7 @@ class AccountController extends BaseController{
 
       } else {
            return Redirect::route('account-change-password')
-          ->with('flash_message', 'Vecā parole ir ievadīta nepareizi! Pārbaudi datus un mēģini vēlreiz!')
+          ->with('flash_message', 'Vecā parole ievadīta nepareizi! Lūdzu, ievadi vēlreiz!')
               ->with('flash_type','warning');
       }
     }

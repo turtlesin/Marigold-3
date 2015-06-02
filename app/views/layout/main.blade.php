@@ -1338,12 +1338,11 @@ input[type=radio]#button-5:checked~.arrows#arrow-4 { left: -73px }
     top: 1000px;
 }
 footer{
-    float: bottom;
-    position: static;
-  margin: 80px 0 0;
-  min-width: 768px;
-  height: 80px;
-  background: rgba(200,200,200,1);;
+    position:fixed;
+   bottom:0;
+   width:100%;
+   height:100px; 
+  background: rgba(200,200,200,1);
 }
 br {
    display: block;
@@ -1404,12 +1403,7 @@ br {
 	#nav-bar a:hover div{
 		height: 343px;
 	}
-        .success{
-            
-        }
-        .message{
-     
-}
+
 .info{
      background-color: #4ea5cd;
      border-color: #3b8eb5;
@@ -1459,81 +1453,11 @@ br {
 .warning{
      background-color: #eaaf51;
      border-color: #d99a36;
-     -webkit-background-size: 20px 20px;
-     -moz-background-size: 20px 20px;
-     background-size: 20px 20px;
-     background-image: -webkit-gradient(linear, left top, right bottom,
-                color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
-                color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
-                color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
-                         to(transparent));
-     background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                         transparent 75%, transparent);
-     background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                         transparent 75%, transparent);
-     background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                          transparent 75%, transparent);
-     background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                           transparent 75%, transparent);
-     background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                           transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                            transparent 75%, transparent);
-     -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     width: 100%;
-     border: 1px solid;
-     color: #fff;
-     text-align: center;
-     position: absolute;
-     _position: absolute;
-     text-shadow: 0 1px 0 rgba(0,0,0,.5);
-     -webkit-animation: animate-bg 5s linear infinite;
-     -moz-animation: animate-bg 5s linear infinite;
 }
 
 .success{
      background-color: #61b832;
      border-color: #55a12c;
-     -webkit-background-size: 20px 20px;
-     -moz-background-size: 20px 20px;
-     background-size: 20px 20px;
-     background-image: -webkit-gradient(linear, left top, right bottom,
-                color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
-                color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
-                color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
-                         to(transparent));
-     background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                         transparent 75%, transparent);
-     background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                         transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                         transparent 75%, transparent);
-     background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                          transparent 75%, transparent);
-     background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                          transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                           transparent 75%, transparent);
-     background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-                           transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-                            transparent 75%, transparent);
-     -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-     width: 100%;
-     border: 1px solid;
-     color: #fff;
-     text-align: center;
-     position: absolute;
-     _position: absolute;
-     text-shadow: 0 1px 0 rgba(0,0,0,.5);
-     -webkit-animation: animate-bg 5s linear infinite;
-     -moz-animation: animate-bg 5s linear infinite;
 }
 
 .message h5{
@@ -1555,7 +1479,15 @@ br {
     }
     to {
        background-position: -80px 0;
-    }
+    }}
+    .wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
 }
 </style>
 

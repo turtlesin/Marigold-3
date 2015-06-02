@@ -82,7 +82,6 @@
                 <div class="dropdownContain">
                 <div class="dropOut">
                     <ul>
-                         <li>{{HTML::link('account/signin','Ienākt')}}</li>
                          <li><a href="{{URL::route('account-forgot-password')}}">Aizmirsi paroli?</a></li>
                          <li>{{HTML::link('account/newaccount','Izveidot profilu')}}</li>
                     </ul>

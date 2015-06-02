@@ -168,15 +168,15 @@
             </ul>
         </div>
     </div>
-      </div>
- <hr style="height:200pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
+      </div><hr style="height:300pt; visibility:hidden;" /></div>
+ <div id="footer">
+ 
       <footer>
           @include('includes.footer')
-</footer>
+      </footer>
+ </div>
       <!-- -->
-</div>
+
 
 @stop
 

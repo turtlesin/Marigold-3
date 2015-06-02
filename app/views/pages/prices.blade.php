@@ -68,10 +68,10 @@
     </tr>
 </table>
 </div>
-   <hr style="height:10pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
+<div id="footer">
+   <hr style="height:30pt; visibility:hidden;" />
       <footer>
           @include('includes.footer')
 </footer> 
+</div>
 @stop

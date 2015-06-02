@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="col-md-12">
 	{{ Form::model($post, array('method' => 'PATCH', 'route' => array('posts.update', $post->id))) }}
 	@if($errors->any())
 		<div class="alert alert-danger">
