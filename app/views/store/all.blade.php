@@ -5,7 +5,7 @@
             <div class="dav">
                 
                 <ul>
-                    <li><a href="{{URL::route('all')}}">Visi produkti</li>
+                    <li><a href="{{URL::route('all')}}">Visi produkti</a></li>
                     <li>
                         <a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   

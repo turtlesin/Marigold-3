@@ -6,10 +6,9 @@
                 
                 <ul>
                     <li>
-                        <a href="{{URL::route('all')}}">Visi produkti
+                        <a href="{{URL::route('all')}}">Visi produkti</a>
                     </li>
-                    <li>
-                        <a href="{{URL::route('store')}}">Kategorijas:</a></li>
+                    <li><a href="{{URL::route('store')}}">Kategorijas:</a></li>
                   
                             @foreach($catnav as $cat)
                             <li>{{ HTML::link('/store/category/'.$cat->id,$cat->name)}}</li>

@@ -61,22 +61,26 @@
         @foreach($products as $product)
         <tr>
             <td> {{ HTML::image($product->image, $product->title, array('width'=>'50'))}}
-                {{ $product->title}}  </td>
+                {{ $product->title}}  
+            </td>
             
             
-            <td>{{Form::open(array('url'=>'admin/products/toggle-availability', 'class'=>'form-inliine')
+            <td>
+                {{Form::open(array('url'=>'admin/products/toggle-availability', 'class'=>'form-inliine')
                         )}}
             {{Form::hidden('id', $product->id)}}
             {{Form::select('availability',array('1'=> 'Ir uz vietas', '0'=>'Nav pieejams'), 
-                $product-> availability) }}</td>
-            <td>{{Form::submit('Atjaunot') }}
-            {{Form::close() }}</td>
+                $product-> availability) }}
+            {{Form::submit('Atjaunot') }}
+            {{Form::close() }}
+            </td>
             <td>{{ link_to_route('products.show', 'Apskatīt', array($product->id), array('class' => 'btn btn-info')) }}</td>
             
             <td> {{ Form::open(array('url'=>'admin/products/destroy', 'class'=>'form-inline')) }}
                 {{ Form::hidden('id',$product->id) }}
             {{ Form::submit('Dzēst') }}
-            {{Form::close()}}</td>
+            {{Form::close()}}
+            </td>
         </tr>
         @endforeach
     </table>

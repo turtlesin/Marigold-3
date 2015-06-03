@@ -18,8 +18,9 @@
 </div>
 </div>
 @if($results->count())
-	@foreach($results as $p)
-<div id="primary">
+<div id="primary">	
+    @foreach($results as $p)
+
 <div class="col-lg-8">
     
         <div class="entry-heading"><div class="entry">{{ HTML::link('blog/'.$p->slug, $p->title) }}</div></div>
@@ -34,17 +35,16 @@
                 </tr>
         </table>
         </div>
-</div>
+
 
 @endforeach
+</div>
 @else
 <div id="primary">
 	<div class="body">Netika atrasts neviens ieraksts!</div>
 </div>
 @endif
 <hr style="height:10pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
       <footer>
           @include('includes.footer')
 </footer>

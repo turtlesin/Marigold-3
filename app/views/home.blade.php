@@ -112,7 +112,7 @@
         <div id="slideshow-inner">
             <ul>
                 <li id="slide1">
-                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/815ea72a1b9393e3fb0c787870f8fdfb.jpg" />
+                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/815ea72a1b9393e3fb0c787870f8fdfb.jpg" alt="Ugunskrusts" />
                     <div class="description">
                         <input type="checkbox" id="show-description-1"/>
                         <label for="show-description-1" class="show-description-label">I</label>
@@ -123,7 +123,7 @@
                     </div>
                 </li>
                 <li id="slide2">
-                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/fc8e35a5929a2811a9b2a552dbcbf66e.jpg" />
+                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/fc8e35a5929a2811a9b2a552dbcbf66e.jpg" alt="Zalkša zīme"/>
                     <div class="description">
                         <input type="checkbox" id="show-description-2"/>
                         <label for="show-description-2" class="show-description-label">I</label>
@@ -134,7 +134,7 @@
                     </div>
                 </li>
                 <li id="slide3">
-                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/4f6342ddf20ef7cf27b18737a7fbd2a6.jpg" />
+                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/4f6342ddf20ef7cf27b18737a7fbd2a6.jpg"  alt="Māras krusts"/>
                     <div class="description">
                         <input type="checkbox" id="show-description-3"/>
                         <label for="show-description-3" class="show-description-label">I</label>
@@ -145,7 +145,7 @@
                     </div>
                 </li>
                 <li id="slide4">
-                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/6edf856c40f8bc881cdab959e16611fa.jpg" />
+                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/6edf856c40f8bc881cdab959e16611fa.jpg" alt="Auseklītis" />
                     <div class="description">
                         <input type="checkbox" id="show-description-4"/>
                         <label for="show-description-4" class="show-description-label">I</label>
@@ -156,7 +156,7 @@
                     </div>
                 </li>
                 <li id="slide5">
-                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/23bc12727666d020b0b31b90e55771f4.jpg" />
+                    <img src="http://alfajums.lv/assets/upload/images/04.05.2014/23bc12727666d020b0b31b90e55771f4.jpg" alt="Austras koks" />
                     <div class="description">
                         <input type="checkbox" id="show-description-5"/>
                         <label for="show-description-5" class="show-description-label">I</label>

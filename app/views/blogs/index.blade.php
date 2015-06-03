@@ -15,9 +15,9 @@
             {{ Form::close()}}
             
 </div>
-
-@foreach($posts as $p)
 <div id="primary">
+@foreach($posts as $p)
+
 <div class="col-lg-8">
     
         <div class="entry-heading"><div class="entry">{{ HTML::link('blog/'.$p->slug, $p->title) }}</div></div>
@@ -39,10 +39,10 @@
                 </tr>
         </table>
         </div>
-</div>
+
 
 @endforeach
-
+</div>
     <?php echo $posts->links() ?>
 
 <hr style="height:10pt; visibility:hidden;" />
