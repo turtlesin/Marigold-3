@@ -65,7 +65,7 @@
        @endforeach
 </ul>
 </div>
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:50pt; visibility:hidden;" />
       <footer>
           @include('includes.footer')
 </footer>

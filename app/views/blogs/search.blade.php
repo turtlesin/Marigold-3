@@ -44,7 +44,7 @@
 	<div class="body">Netika atrasts neviens ieraksts!</div>
 </div>
 @endif
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:60pt; visibility:hidden;" />
       <footer>
           @include('includes.footer')
 </footer>

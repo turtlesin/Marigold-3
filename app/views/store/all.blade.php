@@ -67,7 +67,7 @@
 </ul>
 </div>
 <?php echo $products->links() ?>
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:50pt; visibility:hidden;" />
       <!--Latvju rakstu sadaļas beigas -->
       <!-- -->
       <footer>

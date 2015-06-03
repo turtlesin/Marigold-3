@@ -40,12 +40,12 @@
         </table>
         </div>
 
-
 @endforeach
+<br><?php echo $posts->links() ?> <br><br>
 </div>
-    <?php echo $posts->links() ?>
+    
 
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:50pt; visibility:hidden;" />
 <footer>
           @include('includes.footer')
 </footer>

@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/marigold/app/views/blogs/index.blade.php</file>
-            <file>file:/C:/wamp/www/marigold/app/routes.php</file>
+            <file>file:/C:/wamp/www/marigold/app/views/store/index.blade.php</file>
             <file>file:/C:/wamp/www/marigold/app/views/layout/navigation.blade.php</file>
-            <file>file:/C:/wamp/www/marigold/app/views/layout/main.blade.php</file>
-            <file>file:/C:/wamp/www/marigold/app/controllers/BaseController.php</file>
-            <file>file:/C:/wamp/www/marigold/app/views/blogs/search.blade.php</file>
-            <file>file:/C:/wamp/www/marigold/app/controllers/PostController.php</file>
+            <file>file:/C:/wamp/www/marigold/app/views/products/index.blade.php</file>
         </group>
     </open-files>
 </project-private>

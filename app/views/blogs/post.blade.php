@@ -18,10 +18,10 @@
 
     
 </div>
-
+    <br>
 </div>
 
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:60pt; visibility:hidden;" />
       <!--Latvju rakstu sadaļas beigas -->
       <!-- -->
       <footer>
