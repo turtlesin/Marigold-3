@@ -14,8 +14,11 @@ class AccountController extends BaseController{
     
     public function postCreate(){
         $validator = Validator::make(Input::all(),User::$rules);
-        
-        if ($validator->passes()){
+        //ja validators iztur pārbaudi, tad tiek izveidots jauns lietotāja profils
+        //un tiek izdots paziņojums par veiksmīgu reģistrēciju.
+        //ja lauki netiek aizpildīti pareizi, tad izvada kļūdas paziņojumu un uzrāda radušās kļūdas
+        if ($validator->passes())
+          {
             $user = new User;
             $user->firstname =Input::get('firstname');
             $user->lastname = Input::get('lastname');
@@ -27,8 +30,8 @@ class AccountController extends BaseController{
             
             return Redirect::to('account/signin')
                     ->with('flash_message', 'Paldies par reģistrāciju. Tagad Tu vai pieslēgties.')
-                ->with('flash_type', 'success');   
-        }
+                    ->with('flash_type', 'success');   
+          }
         
         return Redirect::to('account/newaccount')
                 ->with('flash_message', 'Kaut kas nogāja greizi. Mēgini vēlreiz!')
@@ -40,20 +43,23 @@ class AccountController extends BaseController{
     public function getSignin(){
         return View::make('account.signin');
     }
-    
+    //lietotājs tiek nosūtīts uz pieslēgšanās skatu, kurā ir divi obligātie lauki
+    //ja lauki tiek aizpildīti pareizi, tad izvada paziņojumu par veiksmīgu pieslēgšanos
+    //ja lauki nav aizpildīti pareizi, tad izvada kļūdas paziņojumu un uzrāda radušās kļūdas
     public function postSignin(){
          $validator = Validator::make(Input::all(),
-      array(
-            'username' => 'required',
-            'password' => 'required'
-        ));
+            array(
+                'username' => 'required',
+                'password' => 'required'
+                ));
       if ($validator->fails()) {
       return Redirect::to('account/signin')
               ->with('flash_message', 'Neizvās pieslēgites!')
               ->with('flash_type', 'error')
         ->withErrors($validator)
         ->withInput();
-    } else {
+    } 
+    else {
       $auth = Auth::attempt(array('username' => Input::get('username'),
         'password' => Input::get('password')));
       
@@ -75,14 +81,17 @@ class AccountController extends BaseController{
         Auth::logout();
         return Redirect::to('account/signin')
                 ->with('flash_message', 'Atslēgšanās izdevusies!')
-            ->with('flash_type', 'success');
+                ->with('flash_type', 'success');
     }
     
     
   public function getChangePassword() {
     return View::make('account.password');
   }
-
+  //mainot paroli lietotājam ir jāievada gan sava patreizējā parole, gan divas reizes jāievada jaunā parole
+  //ja visi lauki tiek aizpildīti pareizi, tad izvada paziņojumu par veiksmīgu paroles maiņu
+  //vecā parole tiek izdzēsta no datu bāzes un jaunā parole tiek šifrēta un saglabāta
+  //ja lauki netiek aizpildīti pareizi, tad izvada kļūdas paziņojumu
   public function postChangePassword() {
    $validator = Validator::make(Input::all(), array(
    'old_password'   => 'required',
@@ -117,7 +126,12 @@ class AccountController extends BaseController{
           ->with('flash_message', 'Paroli neizdevās nomainīt! Mēģini vēlreiz!')
           ->with('flash_type','error');
   }
-  
+  //gadījumā, ja lietotājs ir aizmirsis paroli, viņam ir iespēja iegūt jaunu ievadot savu e-pastu
+  //tiek meklēts lietotājs ar ievadīto epastu
+  //datu bāze tiek saglabāts kods(beigu daļa atjaunošanas saitei) un pagaidu parole
+  //ja atjaunošanas kods ir pariezs, tad tiek uzrādīts paziņojums par veiksmīgu konta atjaunošanu
+  //datu bāzē esošā parole tiek saglabāta kā jaunā lietotāja parole
+  //ja saite nav pareiza, tad tiek izvadīts kļūdu paziņojums
  public function getForgotPassword() {
   return View::make('account.forgot');
 }
@@ -131,9 +145,10 @@ public function postForgotPassword() {
     return Redirect::route('account-forgot-password')
             ->with('flash_message', 'Neidevās atjaunot paroli!')
             ->with('flash_type', 'error')
-        ->withErrors($validator)
-        ->withInput();
-  } else {
+            ->withErrors($validator)
+            ->withInput();
+    } 
+  else {
 
       $user = User::where('email', '=', Input::get('email'));
       if($user->count()) {
@@ -151,21 +166,23 @@ public function postForgotPassword() {
             'username' => $user->username,
             'password' => $password),
           function($message) use ($user) {
-            $message->to($user->email, $user->username)->subject('Tava jaunā parole tika pieprasīta!');
+            $message->to($user->email, $user->username)
+                    ->subject('Tava jaunā parole tika pieprasīta!');
 
           });
           return Redirect::route('home')
-          ->with('flash_message', 'Jaunā parole tika nosūtīta uz e-pastu!')
+                ->with('flash_message', 'Jaunā parole tika nosūtīta uz e-pastu!')
                 ->with('flash_type', 'success');
         }
       }
   }
   return Redirect::route('account-forgot-password')
-      ->with('flash_type', 'Neizdevās pieprasīt jaunu paroli!')
+        ->with('flash_type', 'Neizdevās pieprasīt jaunu paroli!')
         ->with('flash_message', 'error');
 }
 public function getRecover($code) {
-    $user = User::where('code', '=', $code)->where('password_temp', '!=', '');
+    $user = User::where('code', '=', $code)
+            ->where('password_temp', '!=', '');
 
     if($user->count()){
         $user                   = $user->first();
@@ -175,12 +192,12 @@ public function getRecover($code) {
 
         if ($user->save()) {
             return Redirect::to('account/signin')
-            ->with('flash_message', 'Tavs konts tika atjaunots! Tagad vari pieslēgties ar jauno paroli!')
+                ->with('flash_message', 'Tavs konts tika atjaunots! Tagad vari pieslēgties ar jauno paroli!')
                 ->with('flash_type', 'success');
         }
     }
     return Redirect::route('home')
-    ->with('flash_message', 'Neizdevās atjaunot kontu!')
+            ->with('flash_message', 'Neizdevās atjaunot kontu!')
             ->with('flash_type', 'error');
     }
     

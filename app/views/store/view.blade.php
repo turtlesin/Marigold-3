@@ -27,12 +27,15 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-@if ( Session::has('flash_message') )
-<div class="success">
-      <h5>{{ Session::get('flash_message') }}</h5>
-</div>
-<br>
-@endif
+<!--paziņojumi par veiksmīgu kategorijas izveidi-->
+        @if ( Session::has('flash_message') )
+            <div class="success">
+                  <h5>{{ Session::get('flash_message') }}</h5>
+            </div>
+            <br>
+        @endif
+        
+   <!-- tiek parādīta visa produkta informācija un ir iespēja pievienot to grozam-->     
 <div id="primary">
 <div id="product-image">
     {{HTML::image($product->image, $product->title)}}
@@ -84,8 +87,7 @@
 </div>
 </div>
 <hr style="height:20pt; visibility:hidden;" />
-      <!--Latvju rakstu sadaļas beigas -->
-      <!-- -->
+
       <footer>
           @include('includes.footer')
 </footer>

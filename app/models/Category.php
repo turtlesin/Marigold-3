@@ -7,6 +7,8 @@ class Category extends Eloquent{
         return $this->hasMany('Product');
     }
     
+    
+    //kategorija pieder kādam no lietotājiem
       public function user()
     {
         return $this->belongsTo('User','user_id');

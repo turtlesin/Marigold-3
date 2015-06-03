@@ -57,6 +57,7 @@
 
 </script>
 <!--akordiona galerijas sadaļas beigas-->
+
 <!-- atsauksmju sadaļa-->
       <div class="review">
         <div class="entry-heading"><div class="entry-center">Klientu atsauksmes</div></div>
@@ -169,14 +170,13 @@
         </div>
     </div>
       </div><hr style="height:300pt; visibility:hidden;" /></div>
+      
  <div id="footer">
  
       <footer>
           @include('includes.footer')
       </footer>
  </div>
-      <!-- -->
-
 
 @stop
 

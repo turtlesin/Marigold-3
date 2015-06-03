@@ -1,4 +1,6 @@
 <?php 
+
+//katram skatam tiek izmantots cits kontrolieris ar citu funkciju.
 Route::get('/',array(
     'as'=> 'home',
     'uses' => 'HomeController@home'
@@ -13,30 +15,37 @@ Route::get('/cenas',array(
   'as'=>'cenas',
     'uses'=>'PagesController@prices'
 ));
+
 Route::get('/kontakti',array(
   'as'=>'kontakti',
     'uses'=>'PagesController@contacts'
 ));
+
 Route::get('/par-mums', array(
     'as'=>'par-mums',
     'uses'=>'PagesController@about'
 ));
+
 Route::get('/iespejas', array(
    'as'=>'iespejas',
     'uses'=>'PagesController@possible'
 ));
+
 Route::get('/projekti/individualie',array(
     'as'=>'projekti-individualie',
     'uses'=>'ProjectController@individual'
 ));
+
 Route::get('/projekti/kolektivie',array(
     'as'=>'projekti-kolektivie',
     'uses'=>'ProjectController@colective'
 ));
+
 Route::get('/projekti',array(
     'as'=>'projekti',
     'uses'=>'ProjectController@project'
 ));
+
 Route::controller('admin/products', 'ProductsController');
 Route::controller('admin/categories', 'CategoriesController');
 
@@ -49,6 +58,7 @@ Route::get('/store/all', array(
     'as'=>'all',
     'uses'=>'StoreController@getAll'
 ));
+
 Route::controller('store', 'StoreController');
 Route::controller('account','AccountController');
 
@@ -74,8 +84,6 @@ Route::get('blog/{slug}', function($slug){
 
 	return View::make('blogs.post')->with('post', $post)->with('date', $date);
 });
-
-
 
 Route::get ('account/change-password', array(
     'as' => 'account-change-password-post',

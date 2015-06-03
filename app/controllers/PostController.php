@@ -14,8 +14,10 @@ public function __construct() {
 	 */
 	public function index()
 	{
-		$posts = Post::orderBy('created_at', 'DESC')->paginate(10);
-        return View::make('posts.index')->with('posts', $posts);
+		$posts = Post::orderBy('created_at', 'DESC')
+                        ->paginate(10);
+                 return View::make('posts.index')
+                         ->with('posts', $posts);
 	}
 
 	/**
@@ -91,7 +93,8 @@ public function __construct() {
 			return Redirect::route('posts.index');
 		}
 
-        return View::make('posts.edit')->with('post', $post);
+        return View::make('posts.edit')
+                ->with('post', $post);
 	}
 
 	/**
@@ -114,7 +117,8 @@ public function __construct() {
                         ->with ('flash_type', 'success');
 		}
 
-		return Redirect::back()->withErrors($v);
+		return Redirect::back()
+                        ->withErrors($v);
 	}
 
 	/**
@@ -129,14 +133,16 @@ public function __construct() {
 
 		return Redirect::route('posts.index')
                          ->with('flash_message', 'Bloga ieraksts izdzēsts')
-                ->with('flash_type', 'success');
+                         ->with('flash_type', 'success');
 	}
         
+        //tiek meklēts raksts datu bāzē, kura aprakstā ir meklētā frāze
         public function search()
 	{
 		$input = Input::get('search');
 		$results = Post::where('body', 'LIKE', '%'.$input.'%')->get();
-		return View::make('blogs.search')->with('results', $results);
+		return View::make('blogs.search')
+                        ->with('results', $results);
 	}
 
 }

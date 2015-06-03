@@ -1,29 +1,31 @@
 @extends('layout.main')
 
 @section('content')
-        @if ( Session::has('flash_message') )
-<div class="{{ Session::get('flash_type') }}">
-      <h5>{{ Session::get('flash_message') }}</h5>
-</div>
-<br>
-@endif
+                @if ( Session::has('flash_message') )
+                    <div class="{{ Session::get('flash_type') }}">
+                          <h5>{{ Session::get('flash_message') }}</h5>
+                    </div>
+                    <br>
+                @endif
+                
 <div id="primary">
 <div id="new-account">
     <div class="entry-heading"><div class="entry-center">Izveidot jaunu profilu</div></div>
     <hr>
     
-    @if($errors->has())
-    <div id="form-errors">
-        <p>Radušās sekojošas kļūdas:</p>
-        
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div><!-- end form-errors -->
-    @endif
-    
+            @if($errors->has())<!--ivada kļūdas, ja lauki ir aizpildīti nepareizi-->
+            <div id="form-errors">
+                <p>Radušās sekojošas kļūdas:</p>
+
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><!-- end form-errors -->
+            @endif
+            
+    <!-- forma, ko nepieciešams aizpildīt, lai varētu izveidot jaunu paroli-->
     {{ Form::open(array('url'=>'account/create'))}}
     
     <table class="sign-in">

@@ -11,7 +11,9 @@ class CategoriesController extends BaseController{
         return View::make('categories.index')
                 ->with ('categories', Category::all());
     }
-    
+    //Lietotājam ar administratora statusu ir iespējams izveidot kategorijas vai dzēst tās
+    //tiek pārbaudīts vai kategorija ar ievadīto nosaukumu jau eksistē
+    //ja neeksistē tad saglabā datu bāzē, ja eksistē, tad izvada kļūdas paziņojumu
     public function postCreate(){
         $validator = Validator::make(Input::all(), Category::$rules);
         
@@ -22,7 +24,7 @@ class CategoriesController extends BaseController{
             $category->save();
             
             return Redirect::to('admin/categories/index')
-                ->with ('flash_message', 'Kategorija izveidota')
+                    ->with ('flash_message', 'Kategorija izveidota')
                     ->with('flash_type', 'success');    
         }
         
@@ -32,6 +34,7 @@ class CategoriesController extends BaseController{
                 ->withErrors($validator)
                 ->withInput();
     }
+    //izdzēšot kategoriju parādās paziņojums par veiksmīgu tā izdzēšanu
     public function postDestroy(){
         $category = Category::find(Input::get('id'));
         

@@ -1,11 +1,11 @@
-Hello {{ $username }} ,<br />
+Sveiks {{ $username }} ,<br />
 
-It seem like you requested a new password. If you did not request new password ignore this e-mail<br />
+Tu esi pieprasījis jaunu paroli. Ja to neesi darījis, ignorē šo e-pastu!<br />
 
-New password: {{ $password }}<br /> <br />
+Jaunā parole: {{ $password }}<br /> <br />
 
 
-To activate new password use the following link.<br />
+Lai atjaunotu savu kontu, spied uz zemāk esošo saiti!.<br />
 ---<br />
 {{ $link }}<br/>
 ---

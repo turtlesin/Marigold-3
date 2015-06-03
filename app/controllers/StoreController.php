@@ -40,6 +40,8 @@ class StoreController extends BaseController{
                 ->with('products', Product::where('title', 'LIKE', '%'.$keyword.'%')->get())
                 ->with ('keyword', $keyword);
     }
+    
+    //pievieno produktu grozam.
     public function postAddtocart(){
         $product = Product::find(Input::get('id'));
         $quantity= Input::get('quantity');
@@ -57,11 +59,14 @@ class StoreController extends BaseController{
             ->with('flash_type','success');
     }
     
+    //parāda groza saturu
     public function getCart(){
         return View::make('store.cart')
                 ->with('products', Cart::contents());
     }
     
+    
+    //izdzēš produktu no groza
     public function getRemoveitem($identifier){
         $item = Cart::item($identifier);
         $item->remove();

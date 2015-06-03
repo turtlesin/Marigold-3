@@ -2,27 +2,28 @@
 
 @section('content')
 
-            @if ( Session::has('flash_message') )
-<div class="{{ Session::get('flash_type') }}">
-      <h5>{{ Session::get('flash_message') }}</h5>
-</div>
-<br>
-@endif
+                    @if ( Session::has('flash_message') )
+                        <div class="{{ Session::get('flash_type') }}">
+                              <h5>{{ Session::get('flash_message') }}</h5>
+                        </div>
+                        <br>
+                    @endif
 <div id="primary">
 <section id="signin-form">
     
     <div class="entry-heading"><div class="entry-sign">Man jau ir profils</div></div>
-    @if($errors->has())
-    <div id="form-errors">
-        <p>Radušās sekojošas kļūdas:</p>
-        
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div><!-- end form-errors -->
-    @endif
+    
+            @if($errors->has())<!-- izvada kļūdas, kas radušās aizpildot formu-->
+            <div id="form-errors">
+                <p>Radušās sekojošas kļūdas:</p>
+
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><!-- end form-errors -->
+            @endif
     
     {{ Form::open(array('url'=>'account/signin'))}}
     <table class="sign-in">

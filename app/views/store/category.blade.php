@@ -25,12 +25,14 @@
     @yield('search-keyword')
     @yield('pagination')
 </div>
-@if ( Session::has('flash_message') )
-<div class="success">
-      <h5>{{ Session::get('flash_message') }}</h5>
-</div>
-<br>
-@endif
+
+        @if ( Session::has('flash_message') )
+            <div class="success">
+                  <h5>{{ Session::get('flash_message') }}</h5>
+            </div>
+            <br>
+        @endif
+
 <div class="entry-heading"><div class="entry-center">{{ $category->name}}</div></div>
 <hr>
 

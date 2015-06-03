@@ -19,6 +19,7 @@ class ProductsController extends BaseController{
                 ->with ('categories', $categories);
     }
     
+    //izveidot produktu. pārbauda vai visi lauki ir pareizi aizpildīti
     public function postCreate(){
         $validator = Validator::make(Input::all(), Product::$rules);
         
@@ -48,6 +49,8 @@ class ProductsController extends BaseController{
                 ->withErrors($validator)
                 ->withInput();
     }
+    
+    //idzēš produktu
     public function postDestroy(){
         $product = Product::find(Input::get('id'));
         
@@ -56,20 +59,23 @@ class ProductsController extends BaseController{
             $product->delete();
             return Redirect::to('admin/products/index')
                     ->with('flash_message', 'Produkts tika izdzēsts')
-                ->with('flash_type', 'success');
+                    ->with('flash_type', 'success');
         }
         return Redirect::to('admin/products/index')
                 ->with('flash_message','Neizdevās izdzēst produktu! Mēģini vēlreiz!')
-            ->with ('flash_type', 'error');
+                ->with ('flash_type', 'error');
     }
     
+    //katrs produkts tiek parādīts atsevišķi
     public function show($id)
 	{
 		$product = Product::find($id);
 
-        return View::make('products.show')->with('product', $product);
+        return View::make('products.show') 
+                ->with('product', $product);
 	}
         
+        //maina pieejamību
     public function postToggleAvailability(){
         $product = Product::find(Input::get('id'));
         
@@ -78,19 +84,9 @@ class ProductsController extends BaseController{
             $product->save();
             return Redirect::to('admin/products/index')
                     ->with('flash_message', 'Produkta '.$product->title.' pieejamība tika mainīta')
-                ->with('flash_type', 'success');
+                    ->with('flash_type', 'success');
         }
         return Redirect::to('admin/products/index')-with('message', 'Invalid Product');
     }
-    public function edit($id)
-	{
-		$product = Product::find($id);
-
-		if(is_null($product))
-		{
-			return Redirect::route('products.index');
-		}
-
-        return View::make('products.edit')->with('product', $product);
-	}
+    
 }

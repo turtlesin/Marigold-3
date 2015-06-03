@@ -1,27 +1,30 @@
 @extends ('layout.main')
 
 @section('content')
-        @if ( Session::has('flash_message') )
-<div class="{{ Session::get('flash_type') }}">
-      <h5>{{ Session::get('flash_message') }}</h5>
-</div>
-<br>
-@endif
+                @if ( Session::has('flash_message') )
+                    <div class="{{ Session::get('flash_type') }}">
+                          <h5>{{ Session::get('flash_message') }}</h5>
+                    </div>
+                    <br>
+                @endif
+                
     <div class="entry-heading"><div class="entry-sign">Mainīt paroli</div></div>
     <hr>
   <div id="primary">  
-    @if($errors->has())
-    <div id="form-errors">
-        <p>Radušās sekojošas kļūdas:</p>
-        
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div><!-- end form-errors -->
-    @endif
+            @if($errors->has())<!--izvada kļūdas, ja tādas ir radušās aizpildot formu-->
+            <div id="form-errors">
+                <p>Radušās sekojošas kļūdas:</p>
+
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><!-- end form-errors -->
+            @endif
  
+            
+            <!-- forma, ko nepieciešams aizpildīt, lai nomainītu paroli-->
 {{ Form::open(array(URL::route('account-change-password-post'))) }} 
 <table style="font-size: 20px; line-height: 2em;" id="form" class="show-first">
     <tr>

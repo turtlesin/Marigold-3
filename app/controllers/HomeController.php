@@ -5,10 +5,5 @@ class HomeController extends BaseController {
         
         return View::make('home');
     }
-
-    public function about(){
-        
-        Return View::make('about.index');
-    }
 }
 
